@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Card from '../Components/Card';
-
+import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 const MenSection = () => {
   const [clothes_data,setClothesData] = useState([]);
   const [left,setLeft] = useState(0)
@@ -10,9 +10,9 @@ const MenSection = () => {
 async function servercall(){
   const response =  await axios.get("https://dummyjson.com/products")
   setClothesData(response.data.products)
-  console.log(clothes_data)
 }
-const length = clothes_data.length()
+const length = Math.ceil(clothes_data.length /10);
+console.log(length)
 useEffect(()=>{
   servercall()
 },[])
@@ -25,16 +25,19 @@ useEffect(()=>{
           <Card props={item} />
         ))
       }
-      <div>
-        {
-          ...Array(length).map((index)=>{
-            <div>
-              
-            </div>
-          })
-        }
       </div>
-    </div>
+      <div className='flex justify-center gap-6 py-24 items-center '>
+        <MdNavigateBefore className='w-10 h-10' />
+        {
+          [...Array(length)].map((_,index)=>(
+            <div key={index} className='w-10 h-10 rounded-lg flex cursor-pointer  justify-center items-center border'>
+              {index+1}
+            </div>
+          ))
+        }
+        <MdNavigateNext className='w-10 h-10' />
+      </div>
+    
     </div>
   )
 }

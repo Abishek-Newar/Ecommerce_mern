@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Card = (props) => {
-    console.log(props.props)
   return (
     <div className='w-[350px] h-[400px] border p-6'>
         <img src={props.props.thumbnail} alt="" className='w-[300px] h-[200px] mx-auto' />

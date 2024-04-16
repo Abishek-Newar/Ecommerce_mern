@@ -6,7 +6,7 @@ const Hero = () => {
         <div className="xl:grid flex items-center h-full w-full justify-center xl:grid-cols-2">
             <div className="flex items-center justify-center ">
                 <div>
-                    <h1>NEW ARRIVALS ONLY</h1>
+                <h1>NEW ARRIVALS ONLY</h1>
                 <H2 desc="new 👋" />
                 <H2 desc="collections" />
                 <H2 desc="for everyone" />

@@ -7,6 +7,7 @@ const productRouter = express.Router();
 
 const upload = multer({storage: multer.memoryStorage()})
 productRouter.post("/",upload.single("filename"),async (req,res)=>{
+    console.log(req.file)
     const body = req.body;
     try {
         const dateTime = Date.now()

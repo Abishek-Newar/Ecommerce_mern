@@ -1,16 +1,20 @@
-import { useState } from "react"
-import axios from "axios"
-import Navbar from "./Components/Navbar"
-import Hero from "./Components/Hero"
-import LatestProducts from "./Components/LatestProducts"
-
+import Navbar from "./Components/Navbar";
+import Main from "./model/Main"
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 function App() {
   
   return (
     <>
-      <Navbar />
-      <Hero />
-      <LatestProducts />
+       <RecoilRoot>
+        <Navbar />
+       <Main />
+       </RecoilRoot>
     </>
   )
 }

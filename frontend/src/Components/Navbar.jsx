@@ -21,7 +21,7 @@ const Navbar = () => {
                 <h2 onClick={()=>setPage("contact")} className='cursor-pointer'>Contact</h2>
             </div>
             <div className='flex items-center gap-6 z-10'>
-                <IoIosMenu onClick={()=>{setShow(!show); console.log(show)}} className='md:hidden' />
+                <IoIosMenu onClick={()=>{setShow(!show)}} className='md:hidden' />
                 <button className='px-8 py-1 rounded-lg border'>Login</button>
                 <div>
                 <TiShoppingCart />

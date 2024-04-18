@@ -34,8 +34,24 @@ const userSchema = new  mongoose.Schema({
   email: String,
   password: String
 })
+const adminSchema = new mongoose.Schema({
+  username: String,
+  email: String,
+  password: String
+})
+const productSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  price: Number,
+  stock: Number,
+  brand: String,
+  category: String,
+  image: String
+})
 const User = mongoose.model("user",userSchema);
+const Product = mongoose.model("product",productSchema)
+const Admin = mongoose.model("admin",adminSchema)
 export const storage = getStorage(app);
 export const db = getFirestore(app)
 export const auth = getAuth(app)
-export {User}
+export {User,Product, Admin}

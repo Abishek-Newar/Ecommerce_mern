@@ -1,12 +1,23 @@
-import React from 'react'
-import Navbar from '../Components/Navbar'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Navbar2 from '../Components/Navbar2';
 
 const ProductView = (props) => {
-    console.log(props.title)
+    const location = useLocation();
+    const product  = location.state?.product
+    console.log('Location state:', product.props);
   return (
     <>
-    <Navbar />
-
+    <Navbar2 />
+    <div className='h-screen gap-6 flex flex-col justify-center items-center'>
+        <div className='md:w-[700px] md:h-[500px]  w-full h-auto object-fill p-6 border '>
+            <img src={product.props.thumbnail} alt="" className='w-full h-full' />
+        </div>
+        <h1 className='text-2xl font-semibold'>{product.props.title}</h1>
+        <h2 className='text-lg font-thin text-gray-400'>{product.props.description}</h2>
+        <h3 className='text-3xl font-bold '>${product.props.price}</h3>
+        <button className='bg-black textwhite text-2xl px-4 py-2 text-white rounded-md hover:bg-white border hover:text-black transition-all ease-linear duration-300'>Add to Cart</button>
+    </div>
     </>
   )
 }

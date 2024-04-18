@@ -18,7 +18,7 @@ function App() {
        <BrowserRouter>
        <Routes>
         <Route path="/"  element={<Main />}/>
-        <Route path="view/:props" element={<ProductView/>} />
+        <Route path="/view" element={<ProductView/>} />
        </Routes>
        </BrowserRouter>
        </RecoilRoot>

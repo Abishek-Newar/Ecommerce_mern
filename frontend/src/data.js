@@ -5,6 +5,10 @@ export const pageState = atom({
     default: "Home"
 })
 
+export const cartState = atom({
+    key: 'cartState',
+    default: []
+})
 
 
 export const About = {

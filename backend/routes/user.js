@@ -37,7 +37,7 @@ userRouter.post("/signup",async(req,res)=>{
             email: body.email,
             password: body.password
         })
-        const token = jwt.sign(response.id,SECRET_KEY)
+        const token = jwt.sign(response._id.toHexString(),SECRET_KEY)
         return res.json({token: token})
 
     } catch (error) {
@@ -65,7 +65,7 @@ userRouter.post("/signin",async (req,res)=>{
                 msg: "no users found"
             })
         }
-        const token = jwt.sign(response.id,SECRET_KEY)
+        const token = jwt.sign(response._id.toHexString(),SECRET_KEY)
         return res.json({
             token: token
         })

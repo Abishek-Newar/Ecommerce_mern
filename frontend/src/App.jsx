@@ -9,6 +9,7 @@ import {
   useRecoilValue,
 } from 'recoil';
 import ProductView from "./pages/ProductView";
+import Footer from "./Components/footer";
 function App() {
   
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/view" element={<ProductView/>} />
        </Routes>
        </BrowserRouter>
+       <Footer />
        </RecoilRoot>
     </>
   )

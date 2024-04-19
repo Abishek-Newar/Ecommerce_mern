@@ -5,8 +5,12 @@ import LatestProducts from '../Components/LatestProducts'
 const LandingPage = () => {
   return (
     <>
+    <div id='hero'>
     <Hero/>
+    </div>
+    <div id='product'>
     <LatestProducts />
+    </div>
     </>
   )
 }

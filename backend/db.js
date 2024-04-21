@@ -28,9 +28,7 @@ mongoose.connect(MONGODB_URL)
   console.log("MongoDB Connected")
 })
 const userSchema = new  mongoose.Schema({
-  firstName: String,
-  lastName: String,
-  username: String,
+  name: String,
   email: String,
   password: String
 })
@@ -47,6 +45,11 @@ const productSchema = new mongoose.Schema({
   brand: String,
   category: String,
   image: String
+})
+const Contactus = new mongoose.Schema({
+  name: String,
+  email: String,
+  phone: String
 })
 const User = mongoose.model("user",userSchema);
 const Product = mongoose.model("product",productSchema)

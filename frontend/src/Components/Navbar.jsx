@@ -8,7 +8,7 @@ const Navbar = () => {
     const [cart] = useRecoilState(cartState)
     const [page,setPage] = useRecoilState(pageState)
   return (
-    <div className='fixed w-full'>
+    <div className='fixed w-[100vw] z-30'>
         <nav className='flex px-10 items-center relative justify-between h-[7vh]  w-screen bg-white shadow-md'>
             <div className='w-[200px]'>
                 <h1 className='text-[2vh]  font-extrabold'>GRACE ATTIRE</h1>
@@ -21,9 +21,9 @@ const Navbar = () => {
                 <h2 onClick={()=>{setPage("aboutus");setShow(!show)}} className='mb-4 md:mb-0 cursor-pointer'>About Us</h2>
                 <h2 onClick={()=>{setPage("contact");setShow(!show)}} className='cursor-pointer'>Contact</h2>
             </div>
-            <div className='flex items-center gap-6 z-10'>
+            <div className='flex items-center  z-10'>
                 <IoIosMenu onClick={()=>{setShow(!show)}} className='md:hidden' />
-                <button className='px-8 py-1  rounded-lg border'>Login</button>
+                {/* <button className='px-8 py-1  rounded-lg border'>Login</button> */}
                 <div className='relative' onClick={()=>setPage("cart")}>
                     <div className='text-white font-bold bg-red-500 w-4 h-5 text-center absolute right-0 top-[-10px]'>{cart.length}</div>
                 <TiShoppingCart className='cursor-pointer w-6 h-6' />

@@ -9,7 +9,10 @@ export const cartState = atom({
     key: 'cartState',
     default: []
 })
-
+ export const adminState = atom({
+    key: 'adminState',
+    default: 'add'
+ })
 
 export const About = {
     Aboutus: 'At GRACE ATTIRE, we’re passionate about bringing you the best shopping experience. Whether you’re looking for trendy fashion, high-quality electronics, or unique home decor, we’ve got you covered. Here’s what sets us apart:',

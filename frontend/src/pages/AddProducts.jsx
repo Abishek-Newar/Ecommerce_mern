@@ -26,6 +26,7 @@ const AddProducts = () => {
     try {
       const response = await axios.post("http://localhost:3000/api/products/",formData)
       console.log("product added sucessfully")
+      alert("Product added Succesfully")
     } catch (error) {
       console.log(error)
     }
@@ -33,7 +34,6 @@ const AddProducts = () => {
   return (
 
     <>
-    <Navbar />
     <div className='min-h-screen bg-gradient-to-b flex justify-center items-center from-purple-300 to-white'>
       <form className='min-w-[350px] mt-44 p-6 mb-24 border' >
         <h1 className='text-center text-3xl font-bold mb-6'>ADD PRODUCT</h1>

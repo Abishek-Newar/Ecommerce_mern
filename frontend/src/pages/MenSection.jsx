@@ -3,15 +3,17 @@ import React, { useEffect, useState } from 'react';
 import Card from '../Components/Card';
 import Button from '../Components/button';
 const MenSection = () => {
-  const [clothes_data,setClothesData] = useState([]);
+  const [clothes_data,setClothes] = useState([]);
   const [currentPage,setCurrentPage] = useState(10);
 
-useEffect(()=>{
-  axios.get("https://dummyjson.com/products")
-  .then((response)=>{
-    setClothesData(response.data.products)
-  })
-},[])
+  useEffect(()=>{
+    async function ServerCall(){
+      const response = await axios.get("http://localhost:3000/api/products/getallproducts")
+      console.log(response.data.products)
+    setClothes(response.data.products)
+    }
+    ServerCall();
+  },[])
 const length = clothes_data.length;
 
   return (
@@ -20,7 +22,7 @@ const length = clothes_data.length;
       <div className='flex flex-wrap justify-center gap-10'>
       {
         clothes_data.map((item,index)=>(
-          <div key={index} className={`${index<currentPage? "block": "hidden"}`}>
+          <div key={index} className={`${index<currentPage? "block": "hidden"} ${item.category === "Men"? "block": "hidden"}`}>
             <Card props={item} />
           </div>
         ))

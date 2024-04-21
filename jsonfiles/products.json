@@ -1,0 +1,41 @@
+[{
+    "title": "Blue Check Shirt",
+    "description": "Blue shirts are known for their subtle and sophisticated look, making them one of the most popular options in the formal wear segment. These shirts also dominate the casual clothing line, with various prints, textures, and patterns. Blue color shirts are versatile for styling and suit almost any skin tone",
+    "price": "999",
+    "stock": "15",
+    "brand": "Locomotive",
+    "category": "Men",
+    "image": "https://firebasestorage.googleapis.com/v0/b/ecommercewebsite-31b63.appspot.com/o/EcommerceProducts%2Fundefined%20%20%20%201713050763068?alt=media&token=54fc1bb0-a8ba-4d6f-9d85-e05eaa73c09f"
+},{
+    "title": "Nike X Travis Scott Air low dunk",
+    "description": "Nike shoes are known for their high-quality construction, durability, and performance. They are designed to cater to the needs of different athletes and individuals, providing support, comfort, and traction in various activities",
+    "price": "1999",
+    "stock": "15",
+    "brand": "Nike",
+    "category": "Men",
+    "image": "https://firebasestorage.googleapis.com/v0/b/ecommercewebsite-31b63.appspot.com/o/EcommerceProducts%2Fundefined%20%20%20%201713173568156?alt=media&token=1d2f3a24-18f4-4440-80f2-84b81655b98f"
+},{
+    "title": "Beige Jacket",
+    "description": "Beige is a neutral color that falls between light brown and pale yellow.It exudes elegance, simplicity, and sophistication.Beige jackets have a subtle and understated appeal.",
+    "price": "499",
+    "stock": "15",
+    "brand": "Highlander",
+    "category": "Men",
+    "image": "https://firebasestorage.googleapis.com/v0/b/ecommercewebsite-31b63.appspot.com/o/EcommerceProducts%2F1.jpg?alt=media&token=1ab1b415-c1be-41f1-aa85-aa442c8b52c6"
+},{
+    "title": "Beige Jeans",
+    "description": "Beige is a neutral color that falls between light brown and pale yellow.It exudes elegance, simplicity, and sophistication.Beige jackets have a subtle and understated appeal.",
+    "price": "599",
+    "stock": "15",
+    "brand": "Wrogn",
+    "category": "Men",
+    "image": null
+},{
+    "title": "Black Jeans",
+    "description": "Black jeans are classic, elegant, and bold. They effortlessly bridge the gap between casual and refined aesthetics. The deep, rich color exudes sophistication, making them an ideal choice for any occasion, from a relaxed day out to a dinner date1. Whether you’re dressing up or down, black jeans offer versatility and timeless style",
+    "price": "999",
+    "stock": "15",
+    "brand": "Zara",
+    "category": "Men",
+    "image": "https://firebasestorage.googleapis.com/v0/b/ecommercewebsite-31b63.appspot.com/o/EcommerceProducts%2Fblack%20jeans.jpg?alt=media&token=26905ce2-323d-49b6-b754-ff274b8246fa"
+}]

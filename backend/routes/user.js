@@ -1,15 +1,13 @@
 import express from "express"
-import {z} from "zod"
+import zod from "zod"
 import jwt from "jsonwebtoken"
 import { User } from "../db.js";
 import { SECRET_KEY } from "../data.js";
 const userRouter = express.Router();
-const signupValidator = z.object({
-    firstName: z.string().min(1),
-    lastName: z.string().min(1),
-    username: z.string().min(1),
-    email: z.string().email(),
-    password: z.string().min(6)
+const signupValidator = zod.object({
+    name: zod.string(),
+    email: zod.string().email(),
+    password: zod.string().min(6)
 })
 userRouter.post("/signup",async(req,res)=>{
     const body = req.body;

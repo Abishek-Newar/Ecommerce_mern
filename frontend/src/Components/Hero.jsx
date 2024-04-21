@@ -3,7 +3,7 @@ import hero from "../assets/hero.png"
 import { GrLinkNext } from "react-icons/gr";
 const Hero = () => {
   return (
-    <div className="h-screen bg-gradient-to-b from-purple-200 to-white">
+    <div className="h-screen  bg-gradient-to-b from-purple-200 to-white">
         <div className="xl:grid flex items-center h-full w-full justify-center xl:grid-cols-2">
             <div className="flex items-center justify-center ">
                 <div>

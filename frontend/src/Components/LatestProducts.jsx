@@ -7,17 +7,16 @@ const LatestProducts = () => {
   const [clothes,setClothes] = useState([]);
   useEffect(()=>{
     async function ServerCall(){
-      axios.get("https://dummyjson.com/products")
-      .then((response)=>{
-      setClothes(response.data.products)
-    })
+      const response = await axios.get("http://localhost:3000/api/products/getallproducts")
+      console.log(response.data.products)
+    setClothes(response.data.products)
     }
     ServerCall();
   },[])
   const length = clothes?.length;
   const min = length-6
   return (
-    <div className="h-screen mb-10 ">
+    <div className="min-h-screen  mb-10 ">
       <h1 className="text-center mb-10 text-4xl font-bold uppercase">Latest Products</h1>
         <div className="md:w-[70%] flex flex-wrap justify-center  mx-auto  gap-10">
           {

@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar2 from '../Components/Navbar2';
 
 const ProductView = (props) => {
     const location = useLocation();
+    const [cartItems,setCartItems] = useState([]);
     const product  = location.state?.product
     console.log('Location state:', product.props);
     function AddToCart() {
       if (localStorage.getItem("cart")) {
           const cart = JSON.parse(localStorage.getItem("cart")); 
-          const itemExists = cart.some((item) => item.id === product.props.id);
+          const itemExists = cart.some((item) => item._id === product.props.id);
           if(itemExists){
             alert("Already added to cart")
           }else{

@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
 import { useRecoilState } from 'recoil';
 import { cartState, pageState } from '../data';
 const Navbar = () => {
     const [show,setShow] = useState(false)
-    const [cart] = useRecoilState(cartState)
+    const [cart,setCart] = useState([])
+    useEffect(()=>{
+        const cartItems = localStorage.getItem("cart")
+        if (cartItems) {
+            // Parse the cart items from string to array
+            setCart(JSON.parse(cartItems));
+        }
+    },[])
     const [page,setPage] = useRecoilState(pageState)
   return (
     <div className='fixed w-[100vw] z-30'>

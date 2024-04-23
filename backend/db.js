@@ -54,7 +54,8 @@ const Contactus = new mongoose.Schema({
 const User = mongoose.model("user",userSchema);
 const Product = mongoose.model("product",productSchema)
 const Admin = mongoose.model("admin",adminSchema)
+const Contact = mongoose.model("contact",Contactus)
 export const storage = getStorage(app);
 export const db = getFirestore(app)
 export const auth = getAuth(app)
-export {User,Product, Admin}
+export {User,Product, Admin,Contact}

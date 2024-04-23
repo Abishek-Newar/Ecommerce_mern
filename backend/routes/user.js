@@ -1,7 +1,7 @@
 import express from "express"
 import zod from "zod"
 import jwt from "jsonwebtoken"
-import { User } from "../db.js";
+import { Contact, User } from "../db.js";
 import { SECRET_KEY } from "../data.js";
 const userRouter = express.Router();
 const signupValidator = zod.object({
@@ -75,6 +75,24 @@ userRouter.post("/signin",async (req,res)=>{
     } catch (error) {
         return res.status(403).json({
             msg: "error while loggin in"
+        })
+    }
+})
+
+userRouter.post("/contact",async(req,res)=>{
+    const body = req.body;
+    try{
+        const response = await Contact.create({
+            name: body.name,
+            email: body.email,
+            phone: body.phone
+        })
+        return res.json("")
+    }
+    catch(error){
+        console.log(error)
+        return res.status(403).json({
+            msg: "error"
         })
     }
 })

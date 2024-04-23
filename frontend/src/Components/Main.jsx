@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router'
 const Main = () => {
   const navigate = useNavigate()
   useEffect(()=>{
-    if(localStorage.getItem("token")){
+    if(!localStorage.getItem("token")){
       navigate("/")
     }
   },[])

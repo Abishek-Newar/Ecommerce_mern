@@ -44,10 +44,15 @@ userRouter.post("/signup",async(req,res)=>{
         })
     }
 })
-
+const signinValidator = zod.object({
+    email: zod.string().email(),
+    password: zod.string().min(6)
+})
 userRouter.post("/signin",async (req,res)=>{
     const body = req.body
-    const success = signupValidator.safeParse(body)
+    console.log(body)
+    const success = signinValidator.safeParse(body)
+    console.log(success)
     if(!success.success){
         return res.status(403).json({
             msg: "invalid inputs"

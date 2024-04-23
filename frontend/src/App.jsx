@@ -25,9 +25,9 @@ function App() {
        <RecoilRoot>
        <BrowserRouter>
        <Routes>
-        {/* <Route path="/"  element={<Signin />}/>
-        <Route path="/signup"  element={<Signup />}/> */}
-        <Route path="/"  element={<MainMode />}/>
+        <Route path="/"  element={<Signin />}/>
+        <Route path="/signup"  element={<Signup />}/>
+        <Route path="/home"  element={<MainMode />}/>
         <Route path="/view" element={<ProductView/>} />
         <Route path="/adminSign" element={<AdminSignin />} />
         <Route path="/admin" element={<Admin />} />

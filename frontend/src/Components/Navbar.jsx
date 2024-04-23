@@ -3,9 +3,11 @@ import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
 import { useRecoilState } from 'recoil';
 import { cartState, pageState } from '../data';
+import { useNavigate } from 'react-router';
 const Navbar = () => {
     const [show,setShow] = useState(false)
     const [cart,setCart] = useState([])
+    const navigate = useNavigate()
     useEffect(()=>{
         const cartItems = localStorage.getItem("cart")
         if (cartItems) {
@@ -13,6 +15,11 @@ const Navbar = () => {
             setCart(JSON.parse(cartItems));
         }
     },[])
+
+        function handleSignOut(){
+            localStorage.removeItem("token")
+            navigate("/")
+        }
     const [page,setPage] = useRecoilState(pageState)
   return (
     <div className='fixed w-[100vw] z-30'>
@@ -30,7 +37,7 @@ const Navbar = () => {
             </div>
             <div className='flex items-center  z-10'>
                 <IoIosMenu onClick={()=>{setShow(!show)}} className='md:hidden' />
-                {/* <button className='px-8 py-1  rounded-lg border'>Login</button> */}
+                <button className='px-8 py-1  rounded-lg border'>Log Out</button>
                 <div className='relative' onClick={()=>setPage("cart")}>
                     <div className='text-white font-bold bg-red-500 w-4 h-5 text-center absolute right-0 top-[-10px]'>{cart.length}</div>
                 <TiShoppingCart className='cursor-pointer w-6 h-6' />

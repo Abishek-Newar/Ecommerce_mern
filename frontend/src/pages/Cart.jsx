@@ -1,32 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil'
-import { cartState } from '../data'
-import axios from 'axios'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { GiEmptyMetalBucket } from "react-icons/gi";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router';
 const Cart = () => {
   const navigate = useNavigate();
   const [cart,setCart] = useState(JSON.parse(localStorage.getItem("cart")))
+  const [show,setShow] = useState(false)
   const [price,setPrice] = useState(0)
+  
   useEffect(()=>{
-    async function serverCall(){
-      await axios.get("https://dummyjson.com/products")
-      .then((response)=>{
-
-      })
-      console.log(cart)
-
-    }
-    serverCall()
-  },[])
-  useEffect(()=>{
-    const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+    if(localStorage.getItem("cart")){
+      setShow(true)
+      const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
     setPrice(totalPrice);
+    }
+    
     },[cart]);
     function removeCart(id){
       const newcart = cart.filter((item)=>item._id != id);
       setCart(newcart)
-      localStorage.setItem("cart", JSON.stringify(newcart))
+      if(newcart.length === 1){
+        localStorage.removeItem("cart")
+      }else{
+        localStorage.setItem("cart", JSON.stringify(newcart))
+      }
     }
     async function order(){
       try{
@@ -44,7 +42,8 @@ const Cart = () => {
     }
   return (
     <div className=' min-h-screen'>
-      <div className='pt-[9vh] min-h-[100%] grid xl:grid-cols-2 grid-cols-1'>
+      { show?
+        <div className='pt-[9vh] min-h-[100%] grid xl:grid-cols-2 grid-cols-1'>
         <div className='  flex flex-col gap-6 justify-center items-center'>
           <h1 className=''>Items</h1>
           {
@@ -64,8 +63,12 @@ const Cart = () => {
            <button onClick={order} className='text-2xl px-4 py-1 rounded-md bg-black text-white '>Buy Now</button>
         </div>
       </div>
-      <div>
+      :
+      <div className='flex flex-col h-[100vh] w-full justify-center items-center'>
+        <GiEmptyMetalBucket className='w-32 h-32 opacity-15' />
+         <h1 className='text-6xl font-bold'>Enter Items to Cart</h1>
       </div>
+      }
     </div>
   )
 }

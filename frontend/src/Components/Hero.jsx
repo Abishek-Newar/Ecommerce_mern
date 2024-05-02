@@ -11,7 +11,7 @@ const Hero = () => {
                 <H2 desc="new 👋" />
                 <H2 desc="collections" />
                 <H2 desc="for everyone" />
-                <Link to="product">
+                <Link to="product" smooth={true}>
                 <button  className="bg-red-700 mt-10 rounded-lg border  flex items-center gap-4 hover:bg-red-500 transition-all ease-linear duration-300 px-10 py-2 border-white text-white xs:text-xl md:text-2xl">
                 Latest Collection
                     <GrLinkNext />

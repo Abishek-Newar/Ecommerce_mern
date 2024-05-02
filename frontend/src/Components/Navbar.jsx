@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
 import { useRecoilState } from 'recoil';
-import { cartState, pageState } from '../data';
+import {  pageState } from '../data';
 import { useNavigate } from 'react-router';
 const Navbar = () => {
     const [show,setShow] = useState(false)

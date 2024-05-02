@@ -8,7 +8,7 @@ const LatestProducts = () => {
   useEffect(()=>{
     async function ServerCall(){
       const response = await axios.get("http://localhost:3000/api/products/getallproducts")
-      console.log(response.data.products)
+    
     setClothes(response.data.products)
     }
     ServerCall();
@@ -21,7 +21,7 @@ const LatestProducts = () => {
         <div className="md:w-[70%] flex flex-wrap justify-center  mx-auto  gap-10">
           {
             clothes.map((item,index)=>(
-              <div className={`${index>=min && index<length? "block": "hidden"} `}>
+              <div key={index} className={`${index>=min && index<length? "block": "hidden"} `}>
                 <Card props={item} />
               </div>
             ))

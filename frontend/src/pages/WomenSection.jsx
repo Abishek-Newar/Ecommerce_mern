@@ -9,7 +9,6 @@ const WomenSection = () => {
   useEffect(()=>{
     async function ServerCall(){
       const response = await axios.get("http://localhost:3000/api/products/getallproducts")
-      console.log(response.data.products)
     setClothes(response.data.products)
     }
     ServerCall();

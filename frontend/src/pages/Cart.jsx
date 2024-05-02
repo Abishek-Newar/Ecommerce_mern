@@ -28,6 +28,20 @@ const Cart = () => {
       setCart(newcart)
       localStorage.setItem("cart", JSON.stringify(newcart))
     }
+    async function order(){
+      try{
+        const orders = await axios.post("http://localhost:3000/api/user/order",cart,{
+          headers:{
+            Authorization: localStorage.getItem("token")
+          }
+        })
+        localStorage.removeItem("cart")
+        navigate("/complete")
+      }catch(error){
+        console.log(error);
+
+      }
+    }
   return (
     <div className=' min-h-screen'>
       <div className='pt-[9vh] min-h-[100%] grid xl:grid-cols-2 grid-cols-1'>
@@ -47,7 +61,7 @@ const Cart = () => {
         <div className='border-l flex gap-6 flex-col items-center w-full'>
            <h1 className='text-center text-2xl font-bold'>Total:</h1>
            <h2 className='text-center text-3xl font-bold'>${price}</h2>
-           <button onClick={()=>{navigate("/complete")}} className='text-2xl px-4 py-1 rounded-md bg-black text-white '>Buy Now</button>
+           <button onClick={order} className='text-2xl px-4 py-1 rounded-md bg-black text-white '>Buy Now</button>
         </div>
       </div>
       <div>

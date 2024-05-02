@@ -1,8 +1,9 @@
 import express from "express"
 import zod from "zod"
 import jwt from "jsonwebtoken"
-import { Contact, User } from "../db.js";
+import {  Contact, Order, User } from "../db.js";
 import { SECRET_KEY } from "../data.js";
+import Auth from "../Middlewares/AuthMidleware.js";
 const userRouter = express.Router();
 const signupValidator = zod.object({
     name: zod.string(),
@@ -81,13 +82,14 @@ userRouter.post("/signin",async (req,res)=>{
 
 userRouter.post("/contact",async(req,res)=>{
     const body = req.body;
+    
     try{
         const response = await Contact.create({
             name: body.name,
             email: body.email,
             phone: body.phone
         })
-        return res.json("")
+        return res.json("Our executive wil contact you soon")
     }
     catch(error){
         console.log(error)
@@ -95,6 +97,21 @@ userRouter.post("/contact",async(req,res)=>{
             msg: "error"
         })
     }
+})
+
+userRouter.post("/order", Auth,async(req,res)=>{
+    const body = req.body;
+    console.log(body)
+    try{
+        const response = await Order.create({orders: body})
+        return res.json({msg: "Order Done"})
+    }
+    catch(error){
+        console.log(error)
+        return res.status(403).json({
+            msg: "error while adding to cart"
+        })
+    } 
 })
 
 

@@ -11,6 +11,21 @@ const AllProducts = () => {
     }
     ServerCall()
   },[])
+  async function deleteProduct(id){
+    console.log(id)
+    try {
+      const response = await axios.delete("http://localhost:3000/api/products/deleteproduct",{
+      data:{
+        id: id
+      }
+    })
+    console.log(response)
+    alert("Delted successfully")
+    } catch (error) {
+      console.log(error)
+      alert("error while deleting")
+    }
+  }
   return (
     <div className='min-h-screen flex flex-col items-center gap-3 justify-center bg-gradient-to-br from-purple-300 to-white'>
       <h1>All Products</h1>
@@ -20,7 +35,7 @@ const AllProducts = () => {
                 <img src={item.image} className='w-24 h-auto p-1' alt="" />
                 <h1>{item.title}</h1>
                 <h2>{item.price}</h2>
-                <MdDelete onClick={()=>{}} className='text-red-600 size-6 cursor-pointer' />
+                <MdDelete onClick={()=>{deleteProduct(item._id)}} className='text-red-600 size-6 cursor-pointer' />
               </div>
             ))
           }

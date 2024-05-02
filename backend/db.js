@@ -37,6 +37,7 @@ const adminSchema = new mongoose.Schema({
   email: String,
   password: String
 })
+
 const productSchema = new mongoose.Schema({
   title: String,
   description: String,
@@ -46,6 +47,11 @@ const productSchema = new mongoose.Schema({
   category: String,
   image: String
 })
+
+const orderSchema = new mongoose.Schema({
+  orders: [{ type: mongoose.Schema.Types.Mixed }]
+});
+var Order = mongoose.model('Order', orderSchema);
 const Contactus = new mongoose.Schema({
   name: String,
   email: String,
@@ -58,4 +64,4 @@ const Contact = mongoose.model("contact",Contactus)
 export const storage = getStorage(app);
 export const db = getFirestore(app)
 export const auth = getAuth(app)
-export {User,Product, Admin,Contact}
+export {User,Product, Admin,Contact, Order}

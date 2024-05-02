@@ -10,15 +10,7 @@ const Navbar2 = () => {
     <div className='fixed w-full'>
         <nav className='flex px-10 items-center relative justify-between h-[7vh]  w-screen bg-white shadow-md'>
             <div className='w-[200px]'>
-                <h1 className='text-[2vh]  font-extrabold'><a href="/">GRACE ATTIRE</a></h1>
-            </div>
-            
-            <div className='flex items-center gap-6 z-10'>
-                <IoIosMenu onClick={()=>{setShow(!show)}} className='md:hidden' />
-                <button className='px-8 py-1 rounded-lg border'>Login</button>
-                <div>
-                <TiShoppingCart />
-                </div>
+                <h1 className='text-[2vh]  font-extrabold'><a href="/home">GRACE ATTIRE</a></h1>
             </div>
         </nav>
     </div>

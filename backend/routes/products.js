@@ -1,8 +1,9 @@
 import express from "express";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, getDocs } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import multer from "multer";
 import { Product, db, storage } from "../db.js";
+import { isObjectIdOrHexString } from "mongoose";
 const productRouter = express.Router();
 
 const upload = multer({storage: multer.memoryStorage()})
@@ -46,6 +47,22 @@ productRouter.get("/getallproducts", async(req,res)=>{
          return res.json({products: products})
     } catch (error) {
         return res.status(403).json("error while gettign products")
+    }
+})
+
+productRouter.delete("/deleteproduct", async (req,res)=>{
+    const body = req.body;
+    console.log(req.body)
+    try {
+        const deletes = await Product.deleteOne({
+            _id: body.id
+        })
+        return res.json({msg: deletes})
+    } catch (error) {
+        console.log(error)
+        return res.status(403).json({
+            msg: "Error while deleting"
+        })
     }
 })
 

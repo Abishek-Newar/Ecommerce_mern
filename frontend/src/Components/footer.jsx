@@ -12,7 +12,7 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          
+          <a href="/adminSign">Admin</a>
         </div>
         <div>
          

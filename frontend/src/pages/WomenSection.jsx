@@ -17,7 +17,7 @@ const length = clothes_data.length;
 
   return (
     <div>
-      <h1 className='pt-[9vh] text-4xl font-bold text-center uppercase mb-24'>Women's Clothing</h1>
+      <h1 className='pt-[10vh] text-4xl font-bold text-center uppercase mb-16'>Women's Clothing</h1>
       <div className='flex flex-wrap justify-center gap-10'>
       {
         clothes_data.map((item,index)=>(

@@ -47,11 +47,11 @@ const AddProducts = () => {
         }} />
         <LabeledInput type="number" title="Stock" id="stck" placeholder="10" onChange={(e)=>{
           setProducts({...products,
-          price: e.target.value})
+          stock: e.target.value})
         }} />
         <LabeledInput type="number" title="Price" id="price" placeholder="599" onChange={(e)=>{
           setProducts({...products,
-          stock: e.target.value})
+          price: e.target.value})
         }} />
         <LabeledInput type="text" title="Brand" id="brand" placeholder="Nike" onChange={(e)=>{
           setProducts({...products,

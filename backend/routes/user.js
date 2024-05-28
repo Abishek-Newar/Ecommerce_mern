@@ -70,10 +70,11 @@ userRouter.post("/signin",async (req,res)=>{
             })
         }
         const token = jwt.sign(response._id.toHexString(),SECRET_KEY)
-        return res.json({
+        res.json({
             token: token
         })
     } catch (error) {
+        console.log(error)
         return res.status(403).json({
             msg: "error while loggin in"
         })

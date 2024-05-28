@@ -43,7 +43,7 @@ const Cart = () => {
   return (
     <div className=' min-h-screen'>
       { show?
-        <div className='pt-[9vh] min-h-[100%] grid xl:grid-cols-2 grid-cols-1'>
+        <div className='pt-[10vh] min-h-[100%] grid xl:grid-cols-2 grid-cols-1'>
         <div className='  flex flex-col gap-6 justify-center items-center'>
           <h1 className=''>Items</h1>
           {
@@ -59,7 +59,7 @@ const Cart = () => {
         </div>
         <div className='border-l flex gap-6 flex-col items-center w-full'>
            <h1 className='text-center text-2xl font-bold'>Total:</h1>
-           <h2 className='text-center text-3xl font-bold'>${price}</h2>
+           <h2 className='text-center text-3xl font-bold'>₹ {price}</h2>
            <button onClick={order} className='text-2xl px-4 py-1 rounded-md bg-black text-white '>Buy Now</button>
         </div>
       </div>

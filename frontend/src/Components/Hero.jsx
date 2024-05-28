@@ -3,7 +3,7 @@ import hero from "../assets/hero.png"
 import { GrLinkNext } from "react-icons/gr";
 const Hero = () => {
   return (
-    <div className="h-screen  bg-gradient-to-b from-purple-200 to-white">
+    <div className="min-h-screen  bg-gradient-to-b from-purple-200 to-white">
         <div className="xl:grid flex items-center h-full w-full justify-center xl:grid-cols-2">
             <div className="flex items-center justify-center ">
                 <div>
@@ -20,14 +20,14 @@ const Hero = () => {
                 </div>
             </div>
             <div className="hidden xl:block ">
-                <img src={hero} alt="" className="mx-auto" />
+                <img src={hero} alt="" className="mx-auto h-[90vh]" />
             </div>
         </div>
     </div>
   )
 }
 function H2({desc}){
-    return <h1 className="md:text-9xl sm:text-8xl text-[58px] xs:text-7xl font-semibold m-0 ">
+    return <h1 className="md:text-7xl sm:text-8xl text-[58px] xs:text-7xl font-semibold m-0 ">
         {desc}
     </h1>
 }

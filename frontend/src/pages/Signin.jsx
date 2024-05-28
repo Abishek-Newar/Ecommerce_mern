@@ -15,7 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
                 password
             })
             localStorage.setItem("token",response.data.token)
-            navigate("/home")
+            navigate("/")
         }catch(err){
             console.log(err)
         }

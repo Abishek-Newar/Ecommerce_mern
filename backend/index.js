@@ -10,5 +10,5 @@ app.use("/api/products",productRouter)
 app.use("/api/user",userRouter)
 app.use("/api/admin",adminRouter)
 app.listen(3000,()=>{
-    console.log("Port Connected")
+    console.log("Port Connected") 
 })

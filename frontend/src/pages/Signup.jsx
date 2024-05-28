@@ -19,7 +19,7 @@ export default function Signup(){
                 email,
                 password
             })
-            navigate("/home")
+            navigate("/")
         }
         catch(err){
             console.log(err);

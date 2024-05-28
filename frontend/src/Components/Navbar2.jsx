@@ -35,11 +35,6 @@ const Navbar2 = () => {
                     :
                     <button className='px-8 py-1 w-32 h-9  rounded-lg border' onClick={()=>{navigate("/signin")}}>Login</button>
                 }
-                <div className='relative ' onClick={()=>setPage("cart")}>
-                  
-                    <div className='text-white font-bold bg-red-500 w-4 h-5 text-center absolute right-0 top-[-10px]'>{cart.length}</div>
-                <TiShoppingCart className='cursor-pointer w-6 h-6' />
-                </div>
             </div>
         </nav>
     </div>

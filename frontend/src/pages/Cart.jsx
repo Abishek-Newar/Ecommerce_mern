@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { GiEmptyMetalBucket } from "react-icons/gi";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/footer';
 const Cart = () => {
   const navigate = useNavigate();
   const [cart,setCart] = useState(JSON.parse(localStorage.getItem("cart")))
@@ -41,6 +43,8 @@ const Cart = () => {
       }
     }
   return (
+    <>
+    <Navbar />
     <div className=' min-h-screen'>
       { show?
         <div className='pt-[10vh] min-h-[100%] grid xl:grid-cols-2 grid-cols-1'>
@@ -70,6 +74,8 @@ const Cart = () => {
       </div>
       }
     </div>
+    <Footer />
+    </>
   )
 }
 

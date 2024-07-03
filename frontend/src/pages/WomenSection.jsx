@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Card from '../Components/Card';
 import Button from '../Components/button';
+import Navbar from '../Components/Navbar';
 const WomenSection = () => {
   const [clothes_data,setClothes] = useState([]);
   const [currentPage,setCurrentPage] = useState(10);
@@ -17,6 +18,7 @@ const length = clothes_data.length;
 
   return (
     <div>
+      <Navbar />
       <h1 className='pt-[10vh] text-4xl font-bold text-center uppercase mb-16'>Women's Clothing</h1>
       <div className='flex flex-wrap justify-center gap-10'>
       {

@@ -1,8 +1,12 @@
 import React from 'react'
 import { About } from '../data'
+import Navbar from '../Components/Navbar'
+import Footer from '../Components/footer'
 
 const Aboutus = () => {
   return (
+    <>
+    <Navbar />
     <div className='bg-gradient-to-b min-h-screen mb-12 from-purple-300 to-white'>
          <h1 className='pt-[8vh] text-center text-5xl font-bold mb-16 '>About Us</h1>
          <p className='mx-auto w-[60%] mb-12 font-semibold border-b-2 pb-6 text-justify'>{About.Aboutus}</p>
@@ -24,6 +28,8 @@ const Aboutus = () => {
         <p className='border-l-2 pl-6 text-justify'>{About.ourvision}</p>
        </div>
     </div>
+    <Footer />
+    </>
   )
 }
 

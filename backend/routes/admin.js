@@ -15,7 +15,7 @@ adminRouter.post("/",async(req,res)=>{
     const body = req.body;
     const success = adminValidator.safeParse(body);
     if(!success){
-        return req.status(411).json({
+        return res.status(411).json({
             msg: "invalid inputs"
         })
     }

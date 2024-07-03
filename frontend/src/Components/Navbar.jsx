@@ -32,12 +32,12 @@ const Navbar = () => {
                 <h1 className='text-[2vh]  font-extrabold'onClick={()=>{setPage("Home");setShow(!show)}}>GRACE ATTIRE</h1>
             </div>
             <div className={`md:flex absolute md:static justify-center    text-center w-full left-0 py-6 md:py-0  font-semibold bg-purple-300 md:bg-transparent  text-[1.6vh] top-[7vh] ${show? "translate-y-0": "translate-y-[-50vh] md:translate-y-0 "} transition-all ease-in-out duration-500  gap-6 `}>
-                <h2 onClick={()=>{setPage("Home");setShow(!show)}} className='mb-4 md:mb-0 cursor-pointer '>Shop</h2>
-                <h2 onClick={()=>{setPage("men");setShow(!show)}} className='mb-4 md:mb-0 cursor-pointer'>Men</h2>
-                <h2 onClick={()=>{setPage("women");setShow(!show)}} className='mb-4 md:mb-0 cursor-pointer'>Women</h2>
-                <h2 onClick={()=>{setPage("kids");setShow(!show)}} className='mb-4 md:mb-0 cursor-pointer'>Kids</h2>
-                <h2 onClick={()=>{setPage("aboutus");setShow(!show)}} className='mb-4 md:mb-0 cursor-pointer'>About Us</h2>
-                <h2 onClick={()=>{setPage("contact");setShow(!show)}} className='cursor-pointer'>Contact</h2>
+                <h2 onClick={()=>{setShow(!show);navigate("/")}} className='mb-4 md:mb-0 cursor-pointer '>Shop</h2>
+                <h2 onClick={()=>{setShow(!show);navigate("/men")}} className='mb-4 md:mb-0 cursor-pointer'>Men</h2>
+                <h2 onClick={()=>{setShow(!show);navigate("/women")}} className='mb-4 md:mb-0 cursor-pointer'>Women</h2>
+                <h2 onClick={()=>{setShow(!show);navigate("/kids")}} className='mb-4 md:mb-0 cursor-pointer'>Kids</h2>
+                <h2 onClick={()=>{setShow(!show);navigate("/about")}} className='mb-4 md:mb-0 cursor-pointer'>About Us</h2>
+                <h2 onClick={()=>{setShow(!show);navigate("/contact")}} className='cursor-pointer'>Contact</h2>
             </div>
             <div className='mr-6 flex gap-2'>
                 <Search />
@@ -50,7 +50,7 @@ const Navbar = () => {
                     :
                     <button className='px-8 py-1 w-32 h-9  rounded-lg border' onClick={()=>{navigate("/signin")}}>Login</button>
                 }
-                <div className='relative' onClick={()=>setPage("cart")}>
+                <div className='relative' onClick={()=>navigate("/cart")}>
                     <div className='text-white font-bold bg-red-500 w-4 h-5 text-center absolute right-0 top-[-10px]'>{cart.length}</div>
                 <TiShoppingCart className='cursor-pointer w-6 h-6' />
                 </div>

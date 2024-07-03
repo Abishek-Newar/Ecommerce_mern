@@ -57,11 +57,24 @@ const Contactus = new mongoose.Schema({
   email: String,
   phone: String
 })
+
+const cartSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  price: Number,
+  stock: Number,
+  brand: String,
+  category: String,
+  image: String,
+  quantity: Number,
+  userId: String
+})
 const User = mongoose.model("user",userSchema);
-const Product = mongoose.model("product",productSchema)
-const Admin = mongoose.model("admin",adminSchema)
-const Contact = mongoose.model("contact",Contactus)
+const Product = mongoose.model("product",productSchema);
+const Admin = mongoose.model("admin",adminSchema);
+const Cart = mongoose.model("cart",cartSchema);
+const Contact = mongoose.model("contact",Contactus);
 export const storage = getStorage(app);
 export const db = getFirestore(app)
 export const auth = getAuth(app)
-export {User,Product, Admin,Contact, Order}
+export {User,Product, Admin,Contact, Order, Cart}

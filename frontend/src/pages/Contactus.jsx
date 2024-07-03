@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { LabeledInput } from './AddProducts'
 import Button from '../Components/button'
+import Navbar from '../Components/Navbar'
+import Footer from '../Components/footer'
 
 const Contactus = () => {
   const [name,setName]= useState("")
@@ -19,6 +21,8 @@ const Contactus = () => {
     }
   }
   return (
+    <>
+    <Navbar />
     <div className='min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-300 to-white'>
       <form className='w-[350px] border p-6 rounded-lg' >
         <h1 className='text-center text-4xl font-bold mb-12'>Contact Us</h1>
@@ -28,6 +32,8 @@ const Contactus = () => {
         <button type='submit' className='w-full h-12 text-white bg-gradient-to-tr from-purple-400 to-white hover:to-purple-400 transition-all ease-linear duration-500 rounded-md'>Submit</button>
       </form>
     </div>
+    <Footer />
+    </>
   )
 }
 

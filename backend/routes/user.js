@@ -1,7 +1,7 @@
 import express from "express"
 import zod from "zod"
 import jwt from "jsonwebtoken"
-import {  Contact, Order, User } from "../db.js";
+import {  Cart, Contact, Order, User } from "../db.js";
 import { SECRET_KEY } from "../data.js";
 import Auth from "../Middlewares/AuthMidleware.js";
 const userRouter = express.Router();
@@ -100,6 +100,47 @@ userRouter.post("/contact",async(req,res)=>{
     }
 })
 
+userRouter.post("/addcart",Auth,async(req,res)=>{
+    const body = req.body
+    const userId = req.userId
+
+    try{
+        const check = await Cart.findOne({title: body.title});
+
+    if(check){
+        return res.status(403).json({
+            msg: "Already added to cart"
+        })
+    }
+
+    const item = await Cart.create({
+        title: body.title,
+        description: body.description,
+        price: body.price,
+        stock: body.stock,
+        brand: body.brand,
+        category: body.category,
+        image: body.image,
+        quantity: 1,
+        userId: userId
+    })
+    return res.json("Item added to cart")
+    }
+    catch(error){
+        return res.status(403).json("error while adding to cart")
+    }
+
+})
+userRouter.get("/cart",Auth,async(req,res)=>{
+    const userId = req.userId;
+    try{
+        const items = await Cart.find({userId: userId});
+        res.json({items})
+    }
+    catch(error){
+        
+    }
+})
 userRouter.post("/order", Auth,async(req,res)=>{
     const body = req.body;
     console.log(body)
@@ -114,6 +155,8 @@ userRouter.post("/order", Auth,async(req,res)=>{
         })
     } 
 })
+
+
 
 
 

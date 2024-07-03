@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 
 const Footer = () => {
   return (
-    <div className=" bottom-0  bg-[#37383C] text-white   mb-0 lg:h-96 lg:mt-0">
+    <div className=" bottom-0  bg-[#031531] text-white   mb-0 lg:h-96 lg:mt-0">
       <div className="flex flex-col lg:flex-row justify-between p-8 lg:px-32 px-5">
         <div className=" w-full lg:w-1/4">
           <h1 className=" font-semibold text-xl pb-4">GRACE ATTIRE</h1>

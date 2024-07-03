@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Card from '../Components/Card';
 import Button from '../Components/button';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/footer';
 const MenSection = () => {
   const [clothes_data,setClothes] = useState([]);
   const [currentPage,setCurrentPage] = useState(10);
@@ -18,6 +20,7 @@ const length = clothes_data.length;
 
   return (
     <div>
+      <Navbar />
       <h1 className='pt-[10vh] text-4xl font-bold text-center uppercase mb-16'>Men's Clothing</h1>
       <div className='flex flex-wrap justify-center gap-10'>
       {
@@ -35,6 +38,7 @@ const length = clothes_data.length;
         }
       }} />
       </div>
+      <Footer />
     </div>
   )
 }

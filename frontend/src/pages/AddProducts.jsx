@@ -34,8 +34,8 @@ const AddProducts = () => {
   return (
 
     <>
-    <div className='min-h-screen bg-gradient-to-b flex justify-center items-center from-purple-300 to-white'>
-      <form className='min-w-[350px] mt-44 p-6 mb-24 border' >
+    <div className='min-h-screen bg-[#222224] text-white font-playwriten flex'>
+      <form className='w-[450px] rounded-xl m-auto  p-6 mb-24 border' >
         <h1 className='text-center text-3xl font-bold mb-6'>ADD PRODUCT</h1>
         <LabeledInput type="text" title="Product Name" id="ProductName" placeholder="Nike X Travis Scott Air jordon 1 low"  onChange={(e)=>{
           setProducts({...products,
@@ -45,11 +45,11 @@ const AddProducts = () => {
           setProducts({...products,
           description: e.target.value})
         }} />
-        <LabeledInput type="number" title="Stock" id="stck" placeholder="10" onChange={(e)=>{
+        <LabeledInput type="number" title="Price" id="stck" placeholder="100" onChange={(e)=>{
           setProducts({...products,
           stock: e.target.value})
         }} />
-        <LabeledInput type="number" title="Price" id="price" placeholder="599" onChange={(e)=>{
+        <LabeledInput type="number" title="Stock" id="price" placeholder="5" onChange={(e)=>{
           setProducts({...products,
           price: e.target.value})
         }} />

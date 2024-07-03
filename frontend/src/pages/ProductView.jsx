@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar2 from '../Components/Navbar2';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/footer';
 
 const ProductView = (props) => {
   const navigate = useNavigate()
@@ -31,7 +33,7 @@ const ProductView = (props) => {
   }
   return (
     <>
-    <Navbar2 />
+    <Navbar />
     <div className='min-h-screen xl:grid pt-[10vh] grid-cols-2 '>
         <div className='md:w-[500px]  ml-10 p-6  '>
             <img src={product.props.image} alt="" className='w-full h-auto' />
@@ -43,6 +45,7 @@ const ProductView = (props) => {
         <button onClick={AddToCart} className='bg-black textwhite text-2xl px-4 py-2 text-white rounded-md hover:bg-white border hover:text-black transition-all ease-linear duration-300'>Add to Cart</button>
         </div>
     </div>
+    <Footer />
     </>
   )
 }

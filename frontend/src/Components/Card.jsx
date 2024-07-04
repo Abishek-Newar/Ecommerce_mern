@@ -10,9 +10,9 @@ const Card = (props) => {
     navigate('/view', { state: { product: props } }); 
   };
   return (
-    <div onClick={handleClick}  className='w-[350px] relative h-[650px] border pt-6 '>
-        <div className='w-[300px] h-[350px] mx-auto overflow-hidden'>
-        <img src={props.props.image} alt="" className='w-[300px] h-auto mx-auto z-1' />
+    <div onClick={handleClick}  className='w-[350px] relative h-[450px] bg-cover bg-center border pt-6' style={{background: `url(${props.props.image})`}}>
+        <div className='w-[300px] h-[350px] mx-auto overflow-hidden '>
+        {/* <img src={props.props.image} alt="" className='w-[300px] h-auto mx-auto z-1 ' /> */}
         </div>
        <div className='absolute left-9 bottom-6 w-[80%]'>
        <h1 className='uppercase text-xl text-center mt-3 font-semibold mb-2 '>{props.props.title}</h1>

@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <div className='fixed w-[100vw] z-30'>
         <nav className='flex px-10 items-center relative justify-between h-[9vh]  w-screen bg-white shadow-md'>
-            <div className='w-[200px]'>
+            <div className='w-[200px] cursor-pointer ' onClick={()=>{navigate("/")}}>
                 <h1 className='text-[2vh]  font-extrabold'onClick={()=>{setPage("Home");setShow(!show)}}>GRACE ATTIRE</h1>
             </div>
             <div className={`md:flex absolute md:static justify-center    text-center w-full left-0 py-6 md:py-0  font-semibold bg-purple-300 md:bg-transparent  text-[1.6vh] top-[7vh] ${show? "translate-y-0": "translate-y-[-50vh] md:translate-y-0 "} transition-all ease-in-out duration-500  gap-6 `}>

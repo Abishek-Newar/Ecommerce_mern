@@ -1,7 +1,7 @@
 import express from "express"
 import {z} from "zod"
 import jwt from "jsonwebtoken"
-import { Admin, User } from "../db.js";
+import {  User } from "../db.js";
 import { SECRET_KEY } from "../data.js";
 
 const adminRouter = express.Router()
@@ -20,11 +20,11 @@ adminRouter.post("/",async(req,res)=>{
         })
     }
     try{
-     const response = await Admin.find({
+     const response = await User.find({
         username: body.username,
         password: body.password
      })
-     if(!response){
+     if(!response || !response.isAdmin){
         return res.status(403).json({msg: "no user found"})
      }
      const token = jwt.sign(response._id.toHexString(),SECRET_KEY)

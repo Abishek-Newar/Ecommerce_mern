@@ -30,12 +30,9 @@ mongoose.connect(MONGODB_URL)
 const userSchema = new  mongoose.Schema({
   name: String,
   email: String,
-  password: String
-})
-const adminSchema = new mongoose.Schema({
-  username: String,
-  email: String,
-  password: String
+  password: String,
+  isAdmin: Boolean,
+  isSeller: Boolean
 })
 
 const productSchema = new mongoose.Schema({
@@ -71,10 +68,9 @@ const cartSchema = new mongoose.Schema({
 })
 const User = mongoose.model("user",userSchema);
 const Product = mongoose.model("product",productSchema);
-const Admin = mongoose.model("admin",adminSchema);
 const Cart = mongoose.model("cart",cartSchema);
 const Contact = mongoose.model("contact",Contactus);
 export const storage = getStorage(app);
 export const db = getFirestore(app)
 export const auth = getAuth(app)
-export {User,Product, Admin,Contact, Order, Cart}
+export {User,Product,Contact, Order, Cart}

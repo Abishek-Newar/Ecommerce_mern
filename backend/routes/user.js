@@ -1,7 +1,7 @@
 import express from "express"
 import zod from "zod"
 import jwt from "jsonwebtoken"
-import {  Cart, Contact, Order, User } from "../db.js";
+import {  Cart, Contact,  User } from "../db.js";
 import { SECRET_KEY } from "../data.js";
 import Auth from "../Middlewares/AuthMidleware.js";
 const userRouter = express.Router();
@@ -30,16 +30,17 @@ userRouter.post("/signup",async(req,res)=>{
 
     try {
         const response = await User.create({
-            firstName: body.firstName,
-            lastName: body.lastName,
-            username: body.username,
+            name: body.name,
             email: body.email,
-            password: body.password
+            password: body.password,
+            isAdmin: false,
+            isSeller: false
         })
         const token = jwt.sign(response._id.toHexString(),SECRET_KEY)
         return res.json({token: token})
 
     } catch (error) {
+        console.log(error)
         return res.status(403).json({
             msg: "error while signinig up"
         })
@@ -64,8 +65,9 @@ userRouter.post("/signin",async (req,res)=>{
             email: body.email,
             password: body.password
         })
+        console.log(response)
         if(!response){
-            res.status(403).json({
+            res.status(403).json({ 
                 msg: "no users found"
             })
         }
@@ -117,16 +119,17 @@ userRouter.post("/addcart",Auth,async(req,res)=>{
         title: body.title,
         description: body.description,
         price: body.price,
-        stock: body.stock,
         brand: body.brand,
         category: body.category,
         image: body.image,
         quantity: 1,
+        productId: body.productId,
         userId: userId
     })
     return res.json("Item added to cart")
     }
     catch(error){
+        console.log(error)
         return res.status(403).json("error while adding to cart")
     }
 
@@ -141,20 +144,21 @@ userRouter.get("/cart",Auth,async(req,res)=>{
         
     }
 })
-userRouter.post("/order", Auth,async(req,res)=>{
-    const body = req.body;
-    console.log(body)
-    try{
-        const response = await Order.create({orders: body})
-        return res.json({msg: "Order Done"})
-    }
-    catch(error){
-        console.log(error)
-        return res.status(403).json({
-            msg: "error while adding to cart"
-        })
-    } 
-})
+
+// userRouter.post("/order", Auth,async(req,res)=>{
+//     const body = req.body;
+//     console.log(body)
+//     try{
+//         const response = await Order.create({orders: body})
+//         return res.json({msg: "Order Done"})
+//     }
+//     catch(error){
+//         console.log(error)
+//         return res.status(403).json({
+//             msg: "error while adding to cart" 
+//         })
+//     } 
+// })
 
 
 

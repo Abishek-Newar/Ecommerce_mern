@@ -7,20 +7,36 @@ import Navbar from '../Components/Navbar';
 import Footer from '../Components/footer';
 const Cart = () => {
   const navigate = useNavigate();
-  const [cart,setCart] = useState(JSON.parse(localStorage.getItem("cart")))
+  const [carts,setCart] = useState([])
   const [show,setShow] = useState(false)
   const [price,setPrice] = useState(0)
   
   useEffect(()=>{
-    if(localStorage.getItem("cart")){
-      setShow(true)
-      const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
-    setPrice(totalPrice);
+    let cart = [];
+    async function servercall(){
+      try {
+        const response = await axios.get("http://localhost:3000/api/user/cart",{
+          headers:{
+            Authorization: localStorage.getItem("token")
+          }
+        });
+        cart = (response.data.items)
+        console.log(cart)
+        if(cart.length != 0){
+          setShow(true)
+          const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+        setPrice(totalPrice);
+        }
+        setCart(response.data.items)
+      } catch (error) {
+        alert("Error")
+      }
+
     }
-    
-    },[cart]);
+    servercall();    
+    },[]);
     function removeCart(id){
-      const newcart = cart.filter((item)=>item._id != id);
+      const newcart = carts.filter((item)=>item._id != id);
       setCart(newcart)
       if(newcart.length === 1){
         localStorage.removeItem("cart")
@@ -51,7 +67,7 @@ const Cart = () => {
         <div className='  flex flex-col gap-6 justify-center items-center'>
           <h1 className=''>Items</h1>
           {
-            cart.map((item,index)=>(
+            carts.map((item,index)=>(
               <div key={index} className='border w-[70%] overflow-hidden flex justify-between items-center px-4 h-24 '>
                 <img src={item.image} className='w-24 h-auto p-1' alt="" />
                 <h1>{item.title}</h1>

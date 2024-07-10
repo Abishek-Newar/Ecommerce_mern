@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { API_KEY, APP_ID, AUTH_DOMAIN, MEASUREMENT_ID, MESSEGING_SENDER_ID, MONGODB_URL, PROJECT_ID, STORAGE_BUCKET } from "./data.js";
-import { getStorage } from "firebase/storage";
+import { getStorage, ref } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth"
 import mongoose from "mongoose"
@@ -28,43 +28,110 @@ mongoose.connect(MONGODB_URL)
   console.log("MongoDB Connected")
 })
 const userSchema = new  mongoose.Schema({
-  name: String,
-  email: String,
-  password: String,
-  isAdmin: Boolean,
-  isSeller: Boolean
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    minLength: 6
+  },
+  isAdmin: {
+    type: Boolean,
+    required: true,
+  },
+  isSeller: {
+    type: Boolean,
+    required: true,
+  }
 })
 
 const productSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-  price: Number,
-  stock: Number,
-  brand: String,
-  category: String,
-  image: String
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  stock: {
+    type: Number,
+    required: true,
+  },
+  brand: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
+  }
 })
 
-const orderSchema = new mongoose.Schema({
-  orders: [{ type: mongoose.Schema.Types.Mixed }]
-});
-var Order = mongoose.model('Order', orderSchema);
 const Contactus = new mongoose.Schema({
-  name: String,
-  email: String,
-  phone: String
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: Number,
+    required: true,
+  }
 })
 
 const cartSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-  price: Number,
-  stock: Number,
-  brand: String,
-  category: String,
-  image: String,
-  quantity: Number,
-  userId: String
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  brand: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
+  },
+  productId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product',
+    required: true
+  },
+  userId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  }
 })
 const User = mongoose.model("user",userSchema);
 const Product = mongoose.model("product",productSchema);
@@ -73,4 +140,4 @@ const Contact = mongoose.model("contact",Contactus);
 export const storage = getStorage(app);
 export const db = getFirestore(app)
 export const auth = getAuth(app)
-export {User,Product,Contact, Order, Cart}
+export {User,Product,Contact, Cart}

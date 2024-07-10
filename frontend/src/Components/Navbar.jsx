@@ -27,7 +27,7 @@ const Navbar = () => {
     const [page,setPage] = useRecoilState(pageState)
   return (
     <div className='fixed w-[100vw] z-30'>
-        <nav className='flex px-10 items-center relative justify-between h-[9vh]  w-screen bg-white shadow-md'>
+        <nav className='flex px-10 items-center relative justify-between h-[9vh]  w-screen backdrop-blur-sm shadow-md'>
             <div className='w-[200px] cursor-pointer ' onClick={()=>{navigate("/")}}>
                 <h1 className='text-[2vh]  font-extrabold'onClick={()=>{setPage("Home");setShow(!show)}}>GRACE ATTIRE</h1>
             </div>

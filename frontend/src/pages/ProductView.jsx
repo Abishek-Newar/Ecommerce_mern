@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar2 from '../Components/Navbar2';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/footer';
+import axios from 'axios';
 
 const ProductView = (props) => {
   const navigate = useNavigate()
@@ -10,22 +11,47 @@ const ProductView = (props) => {
     const [cartItems,setCartItems] = useState([]);
     const product  = location.state?.product
     console.log('Location state:', product.props);
-    function AddToCart() {
+    // function AddToCart() {
+    //   if(localStorage.getItem("token")){
+    //     if (localStorage.getItem("cart")) {
+    //       const cart = JSON.parse(localStorage.getItem("cart")); 
+    //       const itemExists = cart.some((item) => item._id === product.props.id);
+    //       if(itemExists){
+    //         alert("Already added to cart")
+    //       }else{
+    //         cart.push(product.props); 
+    //         setCartItems(cart); 
+    //         localStorage.setItem("cart", JSON.stringify(cart)); 
+    //       }
+    //   } else {
+    //       setCartItems([product.props]); 
+    //       localStorage.setItem("cart", JSON.stringify([product.props])); 
+    //   }
+    //   }
+    //   else{
+    //     navigate("/signin")
+    //   }
+    async function AddToCart() {
       if(localStorage.getItem("token")){
-        if (localStorage.getItem("cart")) {
-          const cart = JSON.parse(localStorage.getItem("cart")); 
-          const itemExists = cart.some((item) => item._id === product.props.id);
-          if(itemExists){
-            alert("Already added to cart")
-          }else{
-            cart.push(product.props); 
-            setCartItems(cart); 
-            localStorage.setItem("cart", JSON.stringify(cart)); 
-          }
-      } else {
-          setCartItems([product.props]); 
-          localStorage.setItem("cart", JSON.stringify([product.props])); 
-      }
+        try {
+          const response = await axios.post("http://localhost:3000/api/user/addcart",{
+            title: product.props.title,
+            description: product.props.description,
+            price: product.props.price,
+            brand: product.props.brand,
+            category: product.props.category,
+            image: product.props.image,
+            productId: product.props._id
+          },{
+            headers:{
+              Authorization: localStorage.getItem("token")
+            }
+          })
+          alert("Added to cart")
+        } catch (error) {
+          console.log(error)
+          alert("Already added to cart")
+        }
       }
       else{
         navigate("/signin")

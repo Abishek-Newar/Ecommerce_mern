@@ -1,28 +1,26 @@
 import { Link } from "react-scroll";
 import hero from "../assets/hero.png"
 import { GrLinkNext } from "react-icons/gr";
+import model from "/public/model.avif"
+import sky from "/public/sky.jpg"
+import sky1 from "/public/sky1.jpg"
 const Hero = () => {
+    const backgroundImageStyle = {
+        backgroundImage: `url(${model})`,
+      };
+      const backgroundImageStyle2 = {
+        backgroundImage: `url(${sky})`,
+      };
+      const backgroundImageStyle3 = {
+        backgroundImage: `url(${sky})`,
+      };
   return (
-    <div className="min-h-screen  bg-gradient-to-b from-purple-200 to-white">
-        <div className="xl:grid flex items-center h-full w-full justify-center xl:grid-cols-2">
-            <div className="flex items-center justify-center ">
-                <div>
-                <h1>NEW ARRIVALS ONLY</h1>
-                <H2 desc="new 👋" />
-                <H2 desc="collections" />
-                <H2 desc="for everyone" />
-                <Link to="product" smooth={true}>
-                <button  className="bg-red-700 mt-10 rounded-lg border  flex items-center gap-4 hover:bg-red-500 transition-all ease-linear duration-300 px-10 py-2 border-white text-white xs:text-xl md:text-2xl">
-                Latest Collection
-                    <GrLinkNext />
-                    </button>
-                </Link>
-                </div>
-            </div>
-            <div className="hidden xl:block ">
-                <img src={hero} alt="" className="mx-auto h-[90vh]" />
-            </div>
+    <div className="min-h-screen relative ">
+        <div className="h-screen w-full grid grid-cols-2 z-0">
+            <div className="h-full w-full bg-cover " style={backgroundImageStyle }></div>
+            <div className="h-full w-full bg-cover"  style={backgroundImageStyle2 }></div>
         </div>
+        <div className="h-screen w-full bg-red-500 absolute z-20 top-0 opacity-10 bg-cover" style={backgroundImageStyle3}></div>
     </div>
   )
 }

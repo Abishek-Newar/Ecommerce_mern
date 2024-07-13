@@ -5,7 +5,8 @@ export default {
     extend: {
       fontFamily: {
         playwriten: ["Playwrite DE Grund", "cursive"],
-        playwritec: ["Playwrite US Trad", "cursive"]
+        playwritec: ["Playwrite US Trad", "cursive"],
+        montserrat: ["Montserrat", "sans-serif"]
       }
     },
   },

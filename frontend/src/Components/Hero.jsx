@@ -15,12 +15,17 @@ const Hero = () => {
         backgroundImage: `url(${sky})`,
       };
   return (
-    <div className="min-h-screen relative ">
+    <div className="min-h-screen relative mb-10 ">
         <div className="h-screen w-full grid grid-cols-2 z-0">
             <div className="h-full w-full bg-cover " style={backgroundImageStyle }></div>
             <div className="h-full w-full bg-cover"  style={backgroundImageStyle2 }></div>
         </div>
-        <div className="h-screen w-full bg-red-500 absolute z-20 top-0 opacity-10 bg-cover" style={backgroundImageStyle3}></div>
+        <div className="h-screen w-full  absolute z-20 top-0">
+          <img src={sky1} alt="" className="w-full h-full opacity-5" />
+          <h1 className="absolute top-[85%] left-[22%] font-montserrat  font-extrabold text-7xl"><em>Kapde Chahiye Mil jayenge...</em></h1>
+          {/* <h2 className="text-l absolute left-[55%] top-[25%] w-96 ">"Style isn't just about what you wear; it's about how you live. Elevate your life, elevate your style."</h2> */}
+          <h2 className="text-lg absolute left-[53%] top-[35%] w-[40%]">"Fashion is more than what you wear—it's how you express yourself to the world. Our clothing isn't just fabric and thread; it's a statement of individuality, confidence, and authenticity. Wear our brand and elevate your everyday moments into extraordinary experiences. Because when you dress well, you live well. Discover your true style with us."</h2>
+        </div>
     </div>
   )
 }

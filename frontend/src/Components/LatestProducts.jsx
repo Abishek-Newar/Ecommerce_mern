@@ -16,7 +16,7 @@ const LatestProducts = () => {
   const length = clothes?.length;
   const min = length-6
   return (
-    <div className="min-h-screen  mb-10 ">
+    <div className="min-h-screen   my-20 ">
       <h1 className="text-center mb-10 text-4xl font-bold uppercase">Latest Products</h1>
         <div className="md:w-[70%] flex flex-wrap justify-center  mx-auto  gap-10">
           {

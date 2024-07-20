@@ -27,7 +27,7 @@ const backgroundImageStyle = {
       <div className="min-h-[75vh] relative  bg-fixed bg-cover " style={backgroundImageStyle}> 
       </div>
       <div className="w-[20vw] h-32 bg-white absolute left-[38vw] top-[70vh]">
-      <h1 className=' text-4xl font-bold text-center uppercase '>Men's Clothing</h1>
+      <h1 className=' text-4xl font-bold text-center uppercase '>Kid's Clothing</h1>
       </div>
     </div>
       <div className='flex flex-wrap justify-center pt-32 gap-10'>

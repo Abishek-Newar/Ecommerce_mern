@@ -46,7 +46,7 @@ const Cart = () => {
     }
     async function order(){
       try{
-        const orders = await axios.post("http://localhost:3000/api/user/order",cart,{
+        const orders = await axios.post("http://localhost:3000/api/user/order",carts,{
           headers:{
             Authorization: localStorage.getItem("token")
           }

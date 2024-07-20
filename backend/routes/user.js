@@ -19,7 +19,7 @@ userRouter.post("/signup",async(req,res)=>{
             msg: "invalid input"
         })
     }
-    const check = await User.findOne({
+    const check = await User.findOne({ 
         email: body.email
     })
     if(check){
@@ -66,8 +66,8 @@ userRouter.post("/signin",async (req,res)=>{
             password: body.password
         })
         console.log(response)
-        if(!response){
-            res.status(403).json({ 
+        if(!response || response === null){
+            return res.status(403).json({ 
                 msg: "no users found"
             })
         }
@@ -107,7 +107,10 @@ userRouter.post("/addcart",Auth,async(req,res)=>{
     const userId = req.userId
 
     try{
-        const check = await Cart.findOne({title: body.title});
+        const check = await Cart.findOne({
+            title: body.title,
+            userId: userId
+        });
 
     if(check){
         return res.status(403).json({

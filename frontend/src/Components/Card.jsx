@@ -13,7 +13,7 @@ const Card = (props) => {
     backgroundImage: `url(${props.props.image})`,
   };
   return (
-    <div onClick={handleClick}  className={`w-[350px] group relative h-[450px] transition-all ease-linear duration-300 bg-cover bg-no-repeat bg-center border pt-6 rounded-xl `} style={backgroundImageStyle} >
+    <div onClick={handleClick}  className={`w-[350px] group relative h-[450px] transition-all ease-linear duration-300 bg-cover bg-no-repeat bg-center border pt-6 `} style={backgroundImageStyle} >
         {/* <div className='w-[300px] h-[350px] mx-auto overflow-hidden '>
         <img src={props.props.image} alt="" className='w-[300px] h-auto mx-auto z-1 ' />
         </div> */}

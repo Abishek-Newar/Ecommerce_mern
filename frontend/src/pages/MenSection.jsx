@@ -4,6 +4,7 @@ import Card from '../Components/Card';
 import Button from '../Components/button';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/footer';
+import bg2 from "/public/bg2.avif";
 const MenSection = () => {
   const [clothes_data,setClothes] = useState([]);
   const [currentPage,setCurrentPage] = useState(10);
@@ -17,12 +18,21 @@ const MenSection = () => {
     ServerCall();
   },[])
 const length = clothes_data.length;
-
+const backgroundImageStyle = {
+  backgroundImage: `url(${bg2})`,
+};
   return (
     <div>
       <Navbar />
-      <h1 className='pt-[10vh] text-4xl font-bold text-center uppercase mb-16'>Men's Clothing</h1>
-      <div className='flex flex-wrap justify-center gap-10'>
+      <div>
+      <div className="min-h-[75vh] relative  bg-fixed bg-cover " style={backgroundImageStyle}> 
+      </div>
+      <div className="w-[20vw] h-32 bg-white absolute left-[38vw] top-[70vh]">
+      <h1 className=' text-4xl font-bold text-center uppercase '>Men's Clothing</h1>
+      </div>
+    </div>
+      
+      <div className='flex flex-wrap justify-center gap-10 pt-32'>
       {
         clothes_data.map((item,index)=>(
           <div key={index} className={`${index<currentPage? "block": "hidden"} ${item.category === "Men"? "block": "hidden"}`}>

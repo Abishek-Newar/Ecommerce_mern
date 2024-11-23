@@ -2,21 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { TiShoppingCart } from "react-icons/ti";
 import { IoIosMenu } from "react-icons/io";
 import { useRecoilState } from 'recoil';
-import {  pageState } from '../data';
+import {  cartState, pageState } from '../data';
 import { useNavigate } from 'react-router';
-
+import axios from "axios"
 import Search from './Search';
 const Navbar = () => {
     const [show,setShow] = useState(false)
-    const [cart,setCart] = useState([])
+    const [cart,setCart] = useRecoilState(cartState)
     
     const navigate = useNavigate()
     useEffect(()=>{
-        const cartItems = localStorage.getItem("cart")
-        if (cartItems) {
-            // Parse the cart items from string to array
-            setCart(JSON.parse(cartItems));
+        async function serverCall(){
+            const response = await axios.get("http://localhost:3000/api/user/cart",{
+                headers: {
+                    Authorization: localStorage.getItem("token")
+                }
+            })
+            console.log(response.data.items)
+            setCart(response.data.items)
         }
+        
+        serverCall()
     },[])
 
         function handleSignOut(){
@@ -27,7 +33,7 @@ const Navbar = () => {
     const [page,setPage] = useRecoilState(pageState)
   return (
     <div className='fixed w-[100vw] z-30'>
-        <nav className='flex px-10 items-center relative justify-between h-[9vh]  w-screen backdrop-blur-sm shadow-md'>
+        <nav className='flex px-10 items-center relative justify-between h-[8vh]  w-screen backdrop-blur-sm bg-white shadow-md'>
             <div className='w-[200px] cursor-pointer ' onClick={()=>{navigate("/")}}>
                 <h1 className='text-[2vh]  font-extrabold'onClick={()=>{setPage("Home");setShow(!show)}}>GRACE ATTIRE</h1>
             </div>
@@ -39,9 +45,9 @@ const Navbar = () => {
                 <h2 onClick={()=>{setShow(!show);navigate("/about")}} className='mb-4 md:mb-0 cursor-pointer'>About Us</h2>
                 <h2 onClick={()=>{setShow(!show);navigate("/contact")}} className='cursor-pointer'>Contact</h2>
             </div>
-            <div className='mr-6 flex gap-2'>
+            {/* <div className='mr-6 flex gap-2'>
                 <Search />
-            </div>
+            </div> */}
             <div className='flex items-center gap-4  z-10'>
                 <IoIosMenu onClick={()=>{setShow(!show)}} className='md:hidden' />
                 {

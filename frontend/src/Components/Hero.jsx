@@ -8,7 +8,7 @@ const Hero = () => {
       
   return (
     <div>
-      <div className="min-h-screen relative  bg-fixed bg-cover " style={backgroundImageStyle}> 
+      <div className="min-h-screen relative   bg-cover " style={backgroundImageStyle}> 
       </div>
       <div className="w-72 h-24 bg-white absolute left-32 top-[95vh] px-4 flex items-center justify-between text-3xl">
         <h1 className="">Shop Now </h1>

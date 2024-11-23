@@ -148,6 +148,18 @@ userRouter.get("/cart",Auth,async(req,res)=>{
     }
 })
 
+userRouter.delete("/deletecart",Auth,async(req,res)=>{
+    const params = req.query;
+    try {
+        const deleteitem = await Cart.deleteOne({
+            _id: params.id
+        })
+        res.json({msg: "item deleted"})
+    } catch (error) {
+        res.status(403).json({msg: "error while deleting"})
+    }
+})
+
 // userRouter.post("/order", Auth,async(req,res)=>{
 //     const body = req.body;
 //     console.log(body)

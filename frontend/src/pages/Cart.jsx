@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil'
 import { MdDelete } from "react-icons/md";
 import Navbar from '../Components/Navbar'
 import { useNavigate } from 'react-router';
+import Footer from '../Components/footer';
 const Cart = () => {
   const navigate = useNavigate()
   const [cart,setCart] = useRecoilState(cartState)
@@ -45,6 +46,7 @@ const Cart = () => {
         </div>
       }
     </div>
+    <Footer />
     </>
   )
 }

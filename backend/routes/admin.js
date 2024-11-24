@@ -13,6 +13,7 @@ const adminValidator  = z.object({
 
 adminRouter.post("/",async(req,res)=>{
     const body = req.body;
+    console.log(body)
     const success = adminValidator.safeParse(body);
     if(!success){
         return res.status(411).json({
@@ -20,10 +21,11 @@ adminRouter.post("/",async(req,res)=>{
         })
     }
     try{
-     const response = await User.find({
-        username: body.username,
+     const response = await User.findOne({
+        email: body.username,
         password: body.password
      })
+     console.log(response)
      if(!response || !response.isAdmin){
         return res.status(403).json({msg: "no user found"})
      }

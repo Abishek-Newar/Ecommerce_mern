@@ -17,6 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
             localStorage.setItem("token",response.data.token)
             navigate("/")
         }catch(err){
+            alert("invalid credentials")
             console.log(err)
         }
     }

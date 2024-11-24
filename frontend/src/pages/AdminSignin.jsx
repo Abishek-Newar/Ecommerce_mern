@@ -13,7 +13,8 @@ const AdminSignin = () => {
         })
         navigate("/admin")
         } catch (error) {
-            
+            console.log(error)
+            alert("invalid credentials")
         }
     }
   return (

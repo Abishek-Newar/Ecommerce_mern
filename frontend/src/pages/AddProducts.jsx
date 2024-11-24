@@ -87,7 +87,7 @@ export function LabeledInput({title,type,placeholder,id,onChange}){
   return <>
   <label htmlFor={id}>
     <h2 className='text-lg font-semibold'>{title}</h2>
-    <input type={type} className='w-full h-12 mb-4 rounded-lg px-4' placeholder={placeholder} id={id} required onChange={onChange}/>
+    <input type={type} className='w-full h-12 mb-4 rounded-lg px-4 text-black' placeholder={placeholder} id={id} required onChange={onChange}/>
   </label>
   </>
 }
